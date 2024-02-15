@@ -18,13 +18,18 @@ const styles = StyleSheet.create({
     alignSelf: 'auto', // Center the ticket description horizontally
     marginBottom: 16,
   },
+  textGroup: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
   text: {
     fontSize: 14,
     lineHeight: 24,
     color: '#333333',
     borderWidth: 1,
     borderColor: '#cccccc',
-    padding: 10,
+    padding: 3,
     borderRadius: 5,
     backgroundColor: '#f9f9f9',
     shadowColor: '#000',
@@ -35,17 +40,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     alignSelf: 'auto', // Center the ticket description horizontally
-    marginBottom: 16,
-  },
-  radioGroup: {
-    flexDirection: 'row',
-    alignItems: 'center',
     marginBottom: 8,
-  },
-  radioItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 16,
   },
   image: {
     width: 300,
@@ -57,6 +52,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 16,
+  },
+  emailLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 12,
   },
   label: {
     fontSize: 16,

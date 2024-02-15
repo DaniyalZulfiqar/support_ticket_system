@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Image, TextInput } from 'react-native';
+import { SafeAreaView, View, Text, Button, Image, TextInput, ScrollView } from 'react-native';
 import {RadioButton} from 'react-native-paper';
 import {updatedTicket} from '../actions/tickets';
 import useStyles from './StyleUpdateTicket';
@@ -18,7 +18,7 @@ const UpdateTicketScreen = ({route, navigation}) => {
 
     const dispatch = useDispatch();
     const styles = useStyles;
-    const ResponseEmail = "";
+    var ResponseEmail = "";
     // Fetching Tickets Data
     const tickets = useSelector((state) => state.tickets);
 
@@ -34,6 +34,7 @@ const UpdateTicketScreen = ({route, navigation}) => {
 
     }
 
+    // Update Backend DB with status change
     const handleRadioButtonPress = (currentTicket, input) => {
 
         currentTicket.status = input;
@@ -42,8 +43,9 @@ const UpdateTicketScreen = ({route, navigation}) => {
     }
 
   return (
-    <View style={{ flex: 1, padding: 16 }}>
-
+    <SafeAreaView>
+    <ScrollView>
+    <View style={{ flex: 1, padding: 20 }}>
         <RadioButton.Group
         style = {styles.radioGroup}
         onValueChange={(value) => handleRadioButtonPress(currentTicket, value)}
@@ -67,23 +69,24 @@ const UpdateTicketScreen = ({route, navigation}) => {
                 </View>
             </View>
         </RadioButton.Group>
-      <Text style={styles.status}>Issue: </Text>
-      <Text style={styles.text}>{currentTicket.description}</Text>
-      {currentTicket.photo && <Image source={{ uri: currentTicket.photo }} style={ styles.image} />}
-      <Text style={styles.label}>Email: {currentTicket.name}, {currentTicket.email}</Text>
-      <TextInput
-        style={styles.text}
-        onChangeText={(text) => {
-            ResponseEmail = text;
-          }}
-        placeholder="Please Share Your Updates with the Ticket Creator"
-        multiline
-      />
-      <Button title="Update" onPress={() => handleRespond({currentTicket})} />
+
+        <Text style={styles.status}>Issue: </Text>
+        <Text style={styles.textIssue}>{currentTicket.description}</Text>
+        {currentTicket.photo && <Image source={{ uri: currentTicket.photo }} style={ styles.image} />}
+        <Text style={styles.label}>Email: {currentTicket.name}, {currentTicket.email}</Text>
+        <TextInput
+            style={styles.text}
+            onChangeText={(text) => {
+                ResponseEmail = text;
+            }}
+            placeholder="Please Share Your Updates with the Ticket Creator"
+            multiline
+        />
+        <Button title="Update" onPress={() => handleRespond({currentTicket})} />
     </View>
+    </ScrollView>
+    </SafeAreaView>
   )
-
-
 
 };
 
