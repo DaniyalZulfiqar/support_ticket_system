@@ -62,17 +62,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 16,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 4,
-    padding: 8,
-    marginBottom: 16,
-  },
-  descriptionInput: {
-    height: 100,
-  },
+  }
 });
 
 export default styles;

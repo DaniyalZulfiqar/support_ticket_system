@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
       height: 2,
     }, shadowOpacity: 0.1,
     shadowRadius: 4,
-    alignSelf: 'auto', // Center the ticket description horizontally
+    alignSelf: 'auto',
     marginBottom: 16,
   },
   textGroup: {
@@ -33,13 +33,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#f9f9f9',
     shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    alignSelf: 'auto', // Center the ticket description horizontally
+    alignContent: 'center',
     marginBottom: 8,
   },
   image: {
@@ -62,16 +58,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 16,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 4,
-    padding: 8,
-    marginBottom: 16,
-  },
-  descriptionInput: {
-    height: 100,
   },
 });
 

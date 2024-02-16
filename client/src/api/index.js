@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 //const url = 'http://localhost:5000/tickets';
-//const url = 'http://192.168.0.13:5000/tickets';
-const url = 'http://192.168.0.141:5000/tickets'; // Library URL
+const url = 'http://192.168.0.13:5000/tickets';
+//const url = 'http://192.168.0.141:5000/tickets'; // Library URL
 
 
 //All the actions needs to be done using redux!

@@ -1,4 +1,4 @@
-// All the handlers (logic) etc for our routes goes here to avoid any complex code in routes file
+// Logic for Route Handlers Goes Here
 import express from 'express';
 import mongoose from 'mongoose';
 
@@ -33,8 +33,6 @@ export const updateTicket = async (req, res) => {
   const { id: _id } = req.params;
   const ticket = req.body;
   if (!mongoose.Types.ObjectId.isValid(_id)) {
-    console.log("Update Ticket Server Side");
-    console.log(_id);
     return res.status(404).send('No ticket found with the given ID')
   }
   const updatedTicket = await Ticket.findByIdAndUpdate(_id, ticket, { new: true });

@@ -71,7 +71,7 @@ const UpdateTicketScreen = ({route, navigation}) => {
                 </RadioButton.Group>
                 <Text style={styles.status}>Issue: </Text>
                 <Text style={styles.textIssue}>{currentTicket.description}</Text>
-                {currentTicket.photo && <Image source={{ uri: currentTicket.photo }} style={ styles.image} />}
+                {currentTicket.photo && <Image source={{ uri: currentTicket.photo }} style={ styles.image } />}
                 <Text style={styles.label}>Email: {currentTicket.name}, {currentTicket.email}</Text>
                 <TextInput
                     style={styles.text}

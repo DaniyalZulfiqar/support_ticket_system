@@ -2,7 +2,7 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 
-import { Provider } from 'react-redux'; // Access state of store from anywhere globally we don't have to be in that location
+import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { thunk } from 'redux-thunk';
 

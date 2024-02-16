@@ -3,7 +3,7 @@ import { React }from 'react';
 import { View, Text, Image, Button } from 'react-native';
 import { useSelector } from 'react-redux';
 import useStyles from './StyleTicketDetailScreen';
-import TicketStatus from './TicketStatus';
+import TicketStatus from '../components/TicketStatus/TicketStatus';
 
 const findTicket = (tickets, id) => {
   for (let i = 0; i < tickets.length; i++) {
