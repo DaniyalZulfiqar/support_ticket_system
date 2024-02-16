@@ -1,7 +1,10 @@
 import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
-  button: {
-
+  buttonClear: {
+    marginBottom: 5,
+  },
+  buttonSubmit: {
+    marginBottom: 5,
   },
   container: {
     padding: 20,
@@ -37,6 +40,11 @@ const styles = StyleSheet.create({
   descriptionInput: {
     height: 100,
     textAlignVertical: 'top',
+  },
+  error: {
+    color: 'red',
+    fontSize: 12,
+    marginBottom: 12,
   },
 });
 

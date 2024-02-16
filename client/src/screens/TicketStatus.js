@@ -7,13 +7,13 @@ const TicketStatus = ({ status }) => {
   // Set status color and text based on the status
   switch (status) {
     case 'Open':
-      statusColor = '#FFA500'; // Orange
+      statusColor = '#008000'; // Base Green //'#FFA500'; // Orange
       break;
-    case 'In progress':
+    case 'In Progress':
       statusColor = '#4682B4'; // Steel Blue
       break;
     case 'Closed':
-      statusColor = '#008000'; // Green
+      statusColor = '#FF0000';// Base Red //'#008000'; // Green
       break;
     default:
       statusColor = '#000000'; // Default color

@@ -26,6 +26,44 @@ const Form = () => {
     status: "Open"
   });
 
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    let errors = {};
+    // Validate title field
+    if (!formData.title) {
+      errors.title = 'Title is required.';
+    }
+    // Validate name field
+    if (!formData.name) {
+      errors.name = 'Name is required.';
+    }
+
+    // Validate email field
+    if (!formData.email) {
+      errors.email = 'Email is required.';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = 'Invalid Email';
+    }
+
+    // Validate description field
+    if (!formData.description) {
+      errors.description = 'Description is required.';
+    }
+
+    // Set the errors and update form validity
+    setErrors(errors);
+    setIsFormValid(Object.keys(errors).length === 0);
+  };
+
+  useEffect(() => {
+
+    // Trigger form validation when name,
+    // email, title and description changes
+    validateForm();
+  }, [formData.name, formData.email, formData.title, formData.description]);
+
   const dispatch = useDispatch();
   const styles = useStyles;
 
@@ -95,7 +133,7 @@ const Form = () => {
             placeholder="Enter your email"
             keyboardType="email-address"
           />
-          <Text>Photo/Attachment:</Text>
+          <Text>Photo/Attachment (Optional):</Text>
           <TouchableOpacity style={styles.photoButton} onPress={pickImage}>
             <Text style={styles.photoButtonText}>Choose Photo</Text>
           </TouchableOpacity>
@@ -113,9 +151,18 @@ const Form = () => {
             placeholder="Enter a description of the problem"
             multiline
           />
+          <View style={styles.buttonSubmit}>
+            <Button title="Submit" disabled={!isFormValid} onPress={handleSubmit} />
+          </View>
+          <View style={styles.buttonClear}>
+            <Button title="Clear" onPress={clear} />
+          </View>
 
-          <Button title="Submit" onPress={handleSubmit} />
-          <Button title="Clear" onPress={clear} />
+          {Object.values(errors).map((error, index) => (
+            <Text key={index} style={styles.error}>
+              {error}
+            </Text>
+          ))}
         </View>
       </ScrollView>
     </SafeAreaView>
