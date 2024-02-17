@@ -87,7 +87,8 @@ const Form = () => {
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
-      quality: 1,
+      quality: 0.2,
+      base64: true
     });
 
     console.log(response);
@@ -99,9 +100,9 @@ const Form = () => {
       console.log("No Photo Selected");
     } else {
       //const source = { uri: }
-      const image = 'data:image/jpeg;base64,' + response.assets[0].uri;
-      handleInputChange('photo', response.assets[0].uri);
-      handleInputChange('base64', image);
+      const image = 'data:image/png;base64,' + response.assets[0].base64;
+      handleInputChange('photo', image);
+      //handleInputChange('base64', response.assets[0].base64);
     }
   };
 
